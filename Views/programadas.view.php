@@ -139,59 +139,74 @@
                   <div class="x_content">
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="./registrarasesoria.php" method="POST">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Materia <span class="required">*</span>
-                        </label>
-                        <div class="col-md-3" >
-                                <select class="form-control" name="materia">
-                                  <option selected disabled>Elegir...</option>
-                                  <option>Álgebra Lineal</option>
-                                  <option>Cálculo Diferencial</option>
-                                </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="salon">Salón <span class="required">*</span>
-                        </label>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                          <select class="form-control" name="salon">
-                            <option>Elija una opción...</option>
-                            <option>C203</option>
-                            <option>N203</option>
-                            <option>Salon 3</option>
-                            <option>Salon 4</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fecha">Día <span class="required">*</span>
-                        </label>
-                        <div class="col-md-3">
-                                <select class="form-control" name="dia">
-                                  <option selected disabled>Elegir...</option>
-                                  <option>Lunes</option>
-                                  <option>Martes</option>
-                                  <option>Miércoles</option>
-                                  <option>Jueves</option>
-                                  <option>Viernes</option>
-                                  <option>Sábado</option>
-                                </select>
-                        </div>
-                      </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Hora de inicio <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Materia <span class="required">*</span>
                         </label>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                          <select class="form-control" name="hora">
-                            <option>Elija una opción...</option>
-                            <option>12:00</option>
-                            <option>14:00</option>
-                            <option>17:00</option>
-                            <option>20:00</option>
-                          </select>
+                          <div class="col-md-3">
+                            <select class="form-control" name="id_dia">
+                              <option selected disabled>Elegir...</option>
+                              <?php
+                                $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
+                                $query = $mysqli -> query ("SELECT * FROM materia");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                  echo '<option value="'.$valores[id_materia].'">'.$valores[nombre].'</option>';
+                                }
+                              ?>
+                            </select>
+                          </div>
                         </div>
-                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Salon <span class="required">*</span>
+                        </label>
+                          <div class="col-md-3">
+                            <select class="form-control" name="id_dia">
+                              <option selected disabled>Elegir...</option>
+                              <?php
+                                $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
+                                $query = $mysqli -> query ("SELECT * FROM aula");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                  echo '<option value="'.$valores[id_aula].'">'.$valores[nombre].'</option>';
+                                }
+                              ?>
+                            </select>
+                          </div>
+                        </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Dia <span class="required">*</span>
+                        </label>
+                          <div class="col-md-3">
+                            <select class="form-control" name="id_dia">
+                              <option selected disabled>Elegir...</option>
+                              <?php
+                                $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
+                                $query = $mysqli -> query ("SELECT * FROM dia");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                  echo '<option value="'.$valores[id_dia].'">'.$valores[dia].'</option>';
+                                }
+                              ?>
+                            </select>
+                          </div>
+                        </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Hora Inicio <span class="required">*</span>
+                        </label>
+                          <div class="col-md-3">
+                            <select class="form-control" name="id_dia">
+                              <option selected disabled>Elegir...</option>
+                              <?php
+                                $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
+                                $query = $mysqli -> query ("SELECT hora_inicio FROM asesoria");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                  echo '<option value="'.$valores[id_asesoria].'">'.$valores[hora_inicio].'</option>';
+                                }
+                              ?>
+                            </select>
+                          </div>
+                        </div>
                       <!--<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Hora de fin <span class="required">*</span>
                         </label>
