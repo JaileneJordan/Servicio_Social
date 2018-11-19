@@ -139,7 +139,7 @@
 			<div class="row">
 				<div class="col-md-12">
 		<h1>Imagenes</h1>
-		<a href="../Servicio_SocialSuccess/admin/form.php" class="btn btn-default">Agregar Imagen</a>
+		<a href="../Servicio_Social/admin/form.php" class="btn btn-default">Agregar Imagen</a>
 		<br><br>
 		<?php if(count($images)>0):?>
 				<table class="table table-bordered">
@@ -153,8 +153,8 @@
 				<td><img src="<?php echo $img->folder.$img->src; ?>" style="width:240px;">				</td>
 				<td><?php echo $img->title; ?></td>
 				<td>
-				<a class="btn btn-success" href="../Servicio_SocialSuccess/admin/download.php?id=<?php echo $img->id; ?>">Descargar</a>
-				<a class="btn btn-danger" href="../Servicio_SocialSuccess/admin/delete.php?id=<?php echo $img->id; ?>">Eliminar</a>
+				<a class="btn btn-success" href="../Servicio_Social/admin/download.php?id=<?php echo $img->id; ?>">Descargar</a>
+				<a class="btn btn-danger" href="../Servicio_Social/admin/delete.php?id=<?php echo $img->id; ?>">Eliminar</a>
 			</td>
 				</tr>
 			<?php endforeach;?>
