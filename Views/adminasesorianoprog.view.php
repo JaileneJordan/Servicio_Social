@@ -62,7 +62,7 @@
                     <ul class="nav child_menu">
                       <li><a href="<?php echo RUTA.'adminregistroasesoria.php' ?>">Alta</a></li>
                       <li><a href="<?php echo RUTA.'adminprogramadas.php' ?>">Programadas</a></li>
-                      <li><a href="<?php echo RUTA.'adminasesorianoprog.php' ?>">No Programadas</a></li>
+                      <li><a href="#">No Programadas</a></li>
                       <li><a href="<?php echo RUTA.'adminasesoriaregistroalumno.php' ?>">Ver Alumnos Registrados</a></li>
                     </ul>
                   </li>
@@ -132,75 +132,60 @@
               echo "Fecha de inicio de sesion: ".date("Y/m/d");
             ?>
           </h2>
-        <h1>Módulo de Administrador</h1>
+        <h1>Asesorias no Programadas</h1>
+
         <!-- page content
 
           <div class="">
 
               LLAMAR A LAS OTRAS PAGINAS CON PHP-->
+              <div class="page-title">
 
-            <div class="page-title">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-	  <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>Subir imágen de horario para Asesorias no programadas</h2>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                      <form action="imagenasesorianp.php" method="POST" enctype="multipart/form-data">
+                        <input name="imagen" id="imagen" type="file" class="btn btn-default" required>
+                        <input type="submit" name="subir" value="Subir imagen" class="btn btn-primary">
+                      </form>
+                     </div>
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
 
-      <div class="item active">
-        <img src="images/1.jpg" alt="" style="width:100%;">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
+                     <div class="x_content">
+                       <?PHP
+                         $servername = "localhost";
+                         $username = "root";
+                         $password = "";
+                         $dbname = "asesorias_successfull";
 
-      <div class="item">
-        <img src="images/2.png" alt="" style="width:100%;">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
+                         $conn = new mysqli($servername, $username, $password, $dbname);
+                               $query= "SELECT * FROM image";
+                               $resultado = $conn->query($query) or die ("Error al cargar datos".mysqli_error($conn));
+                               $rows=$resultado->fetch_assoc();
 
-      <div class="item">
-        <img src="images/3.png" alt="" style="width:100%;">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
+                               $imagen=$rows['src'];
+                               $id=$rows['id_image'];
 
-	  <div class="item">
-        <img src="images/4.jpg" alt="" style="width:100%;">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
+                               echo "
+                               <div align='center'>
+                               <img src='$imagen' width='900' height='500' >
+                               </div>";
+
+                               echo "<a href='deleteImagen.php?id=".$id."'><button type='submit' class='btn btn-danger'>Eliminar Imágen</button></a>";
+                               ?>
 
 
 
-    </div>
+                      </div>
 
-    <!-- Left and right controls -->
-    <div class="item">
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-</div>
-  </div>
-</div>
+                   </div>
+                 </div>
+
+              </div>
 
             </div>
               <!--

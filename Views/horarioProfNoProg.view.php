@@ -119,204 +119,26 @@
               </div>
               <div class="x_content">
 
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Lunes</th>
-                      <th>Martes</th>
-                      <th>Miércoles</th>
-                      <th>Jueves</th>
-                      <th>Viernes</th>
-                      <th>Sábado</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">07:00</th>
-                      <td>
-                        <center>Cálculo Diferencial e Integral
-                          </br><small>Aula C203</small>
-                        </center>
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">07:50</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <center>Cálculo Diferencial e Integral
-                          </br><small>Aula C203</small>
-                        </center>
-                      </td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">08:40</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">09:30</th>
-                      <td></td>
-                      <td>
-                        <center>Cálculo Diferencial e Integral
-                          </br><small>Aula C203</small>
-                        </center>
-                      </td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">10:20</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">11:10</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">12:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">12:50</th>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <center>Cálculo Diferencial e Integral
-                          </br><small>Aula C203</small>
-                        </center></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">13:40</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">14:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <center>Cálculo Diferencial e Integral
-                          </br><small>Aula C203</small>
-                        </center></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">14:50</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">15:40</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">16:30</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">17:20</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <center>Cálculo Diferencial e Integral
-                          </br><small>Aula C203</small>
-                        </center></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">18:10</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:00</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">19:50</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <?PHP
+                  $servername = "localhost";
+                  $username = "root";
+                  $password = "";
+                  $dbname = "asesorias_successfull";
+
+                  $conn = new mysqli($servername, $username, $password, $dbname);
+                        $query= "SELECT * FROM image ";
+                        $resultado = $conn->query($query) or die ("Error al cargar datos".mysqli_error($conn));
+                        $rows=$resultado->fetch_assoc();
+
+                        $imagen=$rows['src'];
+
+                        echo "
+                        <div align='center'>
+                        <img src='$imagen' width='900' height='500' >
+                        </div>";
+
+                        //foreach($rows as $row){
+                        ?>
 
               </div>
             </div>

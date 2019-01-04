@@ -71,7 +71,8 @@
                     <ul class="nav child_menu">
                       <li><a href="<?php echo RUTA.'adminregistroasesoria.php' ?>">Alta</a></li>
                       <li><a href="<?php echo RUTA.'adminprogramadas.php' ?>">Programadas</a></li>
-                      <li><a href="#">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesorianoprog.php' ?>">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesoriaregistroalumno.php' ?>">Ver Alumnos Registrados</a></li>
                     </ul>
                   </li>
 
@@ -169,6 +170,7 @@
                                <th>Nombre</th>
                                <th>Apellido Paterno</th>
                                <th>Apellido Materno</th>
+                               <th>Acciones</th>
                              </tr>
                            </thead>
 
@@ -194,9 +196,18 @@
                              <td ><?PHP echo $row[1];?></td>
                              <td> <?PHP echo $row[2];?></td>
                              <td ><?PHP echo $row[3];?></td>
+                             <td>
+                               <?PHP
+                               $id = $row[0];
+                               echo "<a href='updateMaestro.php?id=".$id."'><button type='submit' class='btn btn-primary'>Editar</button></a>";
+                               echo "<a href='deleteMaestro.php?id=".$id."'> <button type='submit' class='btn btn-danger'>Eliminar</button></a>";
+                               ?>
+
+
+                             </td>
                  <?PHP
-                 }
-                                        ?>
+                    }
+                  ?>
                           </tr>
 
                          </tbody>

@@ -4,35 +4,35 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-  <title>Administrador</title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <title>Administrador</title>
 
-  <!-- Bootstrap -->
-  <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <!-- NProgress -->
-  <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-  <!-- jQuery custom content scroller -->
-  <link href="vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-  <!-- iCheck -->
-  <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-  <!-- Datatables -->
-  <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- jQuery custom content scroller -->
+    <link href="vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+    <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom Theme Style -->
-  <link href="build/css/custom.min.css" rel="stylesheet">
-</head>
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+  </head>
 
   <body class="nav-md">
     <div class="container body">
@@ -71,7 +71,7 @@
                       <li><a href="<?php echo RUTA.'adminregistroasesoria.php' ?>">Alta</a></li>
                       <li><a href="<?php echo RUTA.'adminprogramadas.php' ?>">Programadas</a></li>
                       <li><a href="<?php echo RUTA.'adminasesorianoprog.php' ?>">No Programadas</a></li>
-                      <li><a href="<?php echo RUTA.'adminasesoriaregistroalumno.php' ?>">Ver Alumnos Registrados</a></li>
+                      <li><a href="#">Ver Alumnos Registrados</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
@@ -89,7 +89,7 @@
                   <li><a><i class="fa fa-plus"></i> Agregar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo RUTA.'adminregistromaterias.php' ?>">Materias</a></li>
-                      <li><a href="#">Grupos</a></li>
+                      <li><a href="<?php echo RUTA.'adminregistrogrupo.php' ?>">Grupos</a></li>
                       <li><a href="<?php echo RUTA.'adminregistrocarrera.php' ?>">Carreras</a></li>
                       <li><a href="<?php echo RUTA.'adminregistroaula.php' ?>">Aulas</a></li>
                     </ul>
@@ -121,7 +121,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="production/images/user.png" alt=""><?php echo $alumno['Usuario'] ?>
+                    <img src="production/images/user.png" alt=""><?php echo $admin['Usuario'] ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -134,12 +134,12 @@
         </div>
         <!-- /top navigation -->
         <div class="right_col" >
-        <h2>
-          <?php
-            date_default_timezone_set("America/Mexico_City");
-            echo "Fecha de inicio de sesión: ".date("Y/m/d");
-          ?>
-        </h2>
+          <h2>
+            <?php
+              date_default_timezone_set("America/Mexico_City");
+              echo "Fecha de inicio de sesion: ".date("Y/m/d");
+            ?>
+          </h2>
         <!-- page content
 
           <div class="">
@@ -147,125 +147,85 @@
               LLAMAR A LAS OTRAS PAGINAS CON PHP-->
 
             <div class="page-title">
-               <div class="row">
+              <!-- Tabla dinamica -->
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h1>Registro de Grupos</h1>
-
+                    <h1>Alumnos Registrados a las Asesorias</h1>
+                    <ul class="nav navbar-right panel_toolbox">
+                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <br/>
-
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="insertgrupo.php" enctype="multipart/form-data">
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_grupo">Grupo <span class="required">*</span>
-                        </label>
-                        <div class="col-md-3" >
-                          <input type="text" name="id_grupo"><br>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion">Descripcion <span class="required">*</span>
-                        </label>
-                        <div class="col-md-3" >
-                          <input type="text" name="descripcion"><br>
-                        </div>
-                      </div>
-
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                      </div>
-                    </form>
-
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h1>Lista de Grupos</h1>
-
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br/>
-                    <!-- Tabla dinamica -->
-                 <div class="col-md-12 col-sm-12 col-xs-12">
-                           <div class="x_panel">
-
-                             <div class="x_content">
-                               <p class="text-muted font-13 m-b-30">
-
-                               </p>
-                               <table id="datatable-buttons" class="table table-striped table-bordered">
-                                 <thead>
-                                   <tr>
-                                     <th>Id Grupo</th>
-                                     <th>Nombre Grupo</th>
-                                     <th>Acciones</th>
-                                   </tr>
-                                 </thead>
-
-                                 <tbody>
-                               <!-- Aplicadas en las celdas (<td> o <th>) -->
-                     <?PHP
-                       $servername = "localhost";
-                       $username = "root";
-                       $password = "";
-                       $dbname = "asesorias_successfull";
-
-                       $conn = new mysqli($servername, $username, $password, $dbname);
-                             $query= 'SELECT * FROM grupo';
-                             $resultado = $conn->query($query);
-                             $rows=$resultado->fetch_all();
-
-                             foreach($rows as $row){
-                             ?>
-                               <tr>
+                    <p class="text-muted font-13 m-b-30">
+                    </p>
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                       <thead>
+                         <tr>
+                           <th>Id Registro</th>
+                           <th>Matricula Alumno</th>
+                           <th>Nombre Alumno</th>
+                           <th>Apellido Paterno Alumno</th>
+                           <th>Apellido Materno Alumno</th>
+                           <th>Hora Inicio</th>
+                           <th>Fecha</th>
+                           <th>Aula</th>
+                           <th>Materia</th>
+                           <th>Carrera</th>
+                           <th>Maestro</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                         <!-- Aplicadas en las celdas (<td> o <th>) -->
                          <?PHP
-                         $row[0];?>
-                                   <td ><?PHP echo $row[0];?></td>
-                                   <td ><?PHP echo $row[1];?></td>
-                                   <th>
-                                     <?PHP
-                                     $id = $row[0];
-                                     echo "<a href='updateGrupo.php?id=".$id."'><button type='submit' class='btn btn-primary'>Editar</button></a>";
-                                     echo "<a href='deleteGrupo.php?id=".$id."'> <button type='submit' class='btn btn-danger'>Eliminar</button></a>";
-                                     ?>
-                                   </th>
-                       <?PHP
-                        }
-                       ?>
-                                </tr>
+                           $servername = "localhost";
+                           $username = "root";
+                           $password = "";
+                           $dbname = "asesorias_successfull";
 
-                               </tbody>
+                           $conn = new mysqli($servername, $username, $password, $dbname);
+                                 $query= 'select registrar_asesoria.id_registro, alumno.matricula, alumno.nombre, alumno.apellido_paterno, alumno.apellido_materno,asesoria.hora_inicio, dia.dia, aula.nombre, materia.nombre, carrera.nombre, maestro.nombre
+                                          FROM registrar_asesoria INNER JOIN asesoria ON registrar_asesoria.id_asesoria= asesoria.id_asesoria
+                                          INNER JOIN alumno ON registrar_asesoria.matricula_alumno = alumno.matricula
+                                          INNER JOIN dia ON asesoria.id_dia=dia.id_dia
+                                          INNER JOIN aula ON asesoria.id_aula=aula.id_aula
+                                          INNER JOIN materia ON asesoria.id_aula=materia.id_materia
+                                          INNER JOIN carrera ON asesoria.id_carrera=carrera.id_carrera
+                                          INNER JOIN maestro ON asesoria.matricula_maestro=maestro.matricula_maestro';
+                                 $resultado = $conn->query($query);
+                                 $rows=$resultado->fetch_all();
 
-                               </table>
-                             </div>
-                           </div>
-                         </div>
-               <!-- Final de tabla dinamica -->
+                                 foreach($rows as $row){
+                                 ?>
+                                   <tr>
+                             <?PHP
+                             $row[0];?>
+                                       <td ><?PHP echo $row[0];?></td>
+                                       <td ><?PHP echo $row[1];?></td>
+                                       <td ><?PHP echo $row[2];?></td>
+                                       <td ><?PHP echo $row[3];?></td>
+                                       <td ><?PHP echo $row[4];?></td>
+                                       <td ><?PHP echo $row[5];?></td>
+                                       <td ><?PHP echo $row[6];?></td>
+                                       <td ><?PHP echo $row[7];?></td>
+                                       <td ><?PHP echo $row[8];?></td>
+                                       <td ><?PHP echo $row[9];?></td>
+                                       <td ><?PHP echo $row[10];?></td>
 
-                  </div>
-                </div>
-              </div>
+                           <?PHP
+                           }
+                           ?>
+                      </tr>
 
-
+                     </tbody>
+                     </table>
+                   </div>
+                 </div>
+               </div>
+         <!-- Final de tabla dinamica -->
             </div>
 
             </div>
-
-            </div>
-
               <!--
               </div>
 
@@ -314,5 +274,5 @@
 
     <!-- Custom Theme Scripts -->
     <script src="build/js/custom.min.js"></script>
-  </body>
-</html>
+    </body>
+    </html>
