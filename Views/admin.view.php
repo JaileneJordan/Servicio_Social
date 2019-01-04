@@ -62,7 +62,8 @@
                     <ul class="nav child_menu">
                       <li><a href="<?php echo RUTA.'adminregistroasesoria.php' ?>">Alta</a></li>
                       <li><a href="<?php echo RUTA.'adminprogramadas.php' ?>">Programadas</a></li>
-                      <li><a href="#">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesorianoprog.php' ?>">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesoriaregistroalumno.php' ?>">Ver Alumnos Registrados</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Alumnos <span class="fa fa-chevron-down"></span></a>

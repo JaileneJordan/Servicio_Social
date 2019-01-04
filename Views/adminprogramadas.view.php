@@ -71,7 +71,8 @@
                     <ul class="nav child_menu">
                       <li><a href="<?php echo RUTA.'adminregistroasesoria.php' ?>">Alta</a></li>
                       <li><a href="#">Programadas</a></li>
-                      <li><a href="#">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesorianoprog.php' ?>">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesoriaregistroalumno.php' ?>">Ver Alumnos Registrados</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
@@ -140,7 +141,6 @@
               echo "Fecha de inicio de sesion: ".date("Y/m/d");
             ?>
           </h2>
-        <h1>Módulo de Administrador</h1>
         <!-- page content
 
           <div class="">
@@ -152,7 +152,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Asesorias Programadas</h2>
+                    <h1>Asesorias Programadas</h1>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
@@ -173,6 +173,7 @@
                            <th>Materia</th>
                            <th>Carrera</th>
                            <th>Maestro</th>
+                           <th>Acciones</th>
                          </tr>
                        </thead>
                        <tbody>
@@ -185,11 +186,11 @@
 
                            $conn = new mysqli($servername, $username, $password, $dbname);
                                  $query= 'select asesoria.id_asesoria, asesoria.tipo_asesoria, asesoria.hora_inicio, asesoria.hora_fin, dia.dia, asesoria.cupo, aula.nombre, materia.nombre, carrera.nombre, maestro.nombre
-FROM asesoria INNER JOIN dia ON asesoria.id_dia=dia.id_dia
-INNER JOIN aula ON asesoria.id_aula=aula.id_aula
-INNER JOIN materia ON asesoria.id_materia=materia.id_materia
-INNER JOIN carrera ON asesoria.id_carrera= carrera.id_carrera
-INNER JOIN maestro ON asesoria.matricula_maestro=maestro.matricula_maestro';
+                                 FROM asesoria INNER JOIN dia ON asesoria.id_dia=dia.id_dia
+                                 INNER JOIN aula ON asesoria.id_aula=aula.id_aula
+                                 INNER JOIN materia ON asesoria.id_materia=materia.id_materia
+                                 INNER JOIN carrera ON asesoria.id_carrera= carrera.id_carrera
+                                 INNER JOIN maestro ON asesoria.matricula_maestro=maestro.matricula_maestro';
                                  $resultado = $conn->query($query);
                                  $rows=$resultado->fetch_all();
 
@@ -208,6 +209,15 @@ INNER JOIN maestro ON asesoria.matricula_maestro=maestro.matricula_maestro';
                                        <td ><?PHP echo $row[7];?></td>
                                        <td ><?PHP echo $row[8];?></td>
                                        <td ><?PHP echo $row[9];?></td>
+                                       <td>
+                                         <?PHP
+                                         $id = $row[0];
+                                         echo "<a href='updateAsesoria.php?id=".$id."'><button type='submit' class='btn btn-primary'>Editar</button></a>";
+                                         echo "<a href='deleteAsesoria.php?id=".$id."'> <button type='submit' class='btn btn-danger'>Eliminar</button></a>";
+                                         ?>
+
+
+                                       </td>
                            <?PHP
                            }
                            ?>

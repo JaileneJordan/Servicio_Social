@@ -70,7 +70,8 @@
                     <ul class="nav child_menu">
                       <li><a href="<?php echo RUTA.'adminregistroasesoria.php' ?>">Alta</a></li>
                       <li><a href="<?php echo RUTA.'adminprogramadas.php' ?>">Programadas</a></li>
-                      <li><a href="#">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesorianoprog.php' ?>">No Programadas</a></li>
+                      <li><a href="<?php echo RUTA.'adminasesoriaregistroalumno.php' ?>">Ver Alumnos Registrados</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-graduation-cap"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
@@ -160,17 +161,17 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" action="insertmateria.php" enctype="multipart/form-data">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Materia <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre" >Materia <span class="required">*</span>
                         </label>
                         <div class="col-md-3" >
-                          <input type="text" name="nombre"><br>
+                          <input type="text" name="nombre" id="nombre"><br>
                         </div>
                       </div>
 
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Guardar</button>
+                          <button type="submit" class="btn btn-primary" name="guardar">Guardar</button>
                         </div>
                       </div>
                     </form>
@@ -202,6 +203,7 @@
                                    <tr>
                                      <th>Id Materia</th>
                                      <th>Nombre Materia</th>
+                                     <th>Acciones</th>
                                    </tr>
                                  </thead>
 
@@ -219,15 +221,25 @@
                              $rows=$resultado->fetch_all();
 
                              foreach($rows as $row){
-                             ?>
+                     ?>
                                <tr>
                          <?PHP
                          $row[0];?>
                                    <td ><?PHP echo $row[0];?></td>
                                    <td ><?PHP echo $row[1];?></td>
+
+                                   <td>
+                                     <?PHP
+                                     $id = $row[0];
+                                     echo "<a href='updateMateria.php?id=".$id."'><button type='submit' class='btn btn-primary'>Editar</button></a>";
+                                     echo "<a href='deleteMateria.php?id=".$id."'> <button type='submit' class='btn btn-danger'>Eliminar</button></a>";
+                                     ?>
+
+
+                                   </td>
                        <?PHP
                        }
-                                              ?>
+                      ?>
                                 </tr>
 
                                </tbody>
