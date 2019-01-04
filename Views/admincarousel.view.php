@@ -134,6 +134,7 @@
               echo "Fecha de inicio de sesion: ".date("Y/m/d");
             ?>
           </h2>
+<<<<<<< HEAD
           <h1>Carrucel de Imágenes</h1>
           <div class="page-title">
 
@@ -173,6 +174,43 @@
                 </div>
               </div>
              </div>
+=======
+        <h1>Módulo de Administrador</h1>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+		<h1>Imagenes</h1>
+		<a href="../Servicio_Social/admin/form.php" class="btn btn-default">Agregar Imagen</a>
+		<br><br>
+		<?php if(count($images)>0):?>
+				<table class="table table-bordered">
+					<thead>
+						<th>Imagen</th>
+						<th>Texto a mostrar</th>
+						<th>
+					</thead>
+			<?php foreach($images as $img):?>
+				<tr>
+				<td><img src="<?php echo $img->folder.$img->src; ?>" style="width:240px;">				</td>
+				<td><?php echo $img->title; ?></td>
+				<td>
+				<a class="btn btn-success" href="../Servicio_Social/admin/download.php?id=<?php echo $img->id; ?>">Descargar</a>
+				<a class="btn btn-danger" href="../Servicio_Social/admin/delete.php?id=<?php echo $img->id; ?>">Eliminar</a>
+			</td>
+				</tr>
+			<?php endforeach;?>
+    </table>
+		<?php else:?>
+
+			<h4 class="alert alert-warning">No hay imagenes!</h4>
+		<?php endif; ?>
+</div>
+</div>
+</div>
+
+
+>>>>>>> 19a7f89c6971c81431f4f24132bb5bc4407c9671
 
           </div>
         </div>
