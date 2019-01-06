@@ -192,7 +192,7 @@
                                  INNER JOIN carrera ON asesoria.id_carrera= carrera.id_carrera
                                  INNER JOIN maestro ON asesoria.matricula_maestro=maestro.matricula_maestro';
                                  $resultado = $conn->query($query);
-                                 $rows=$resultado->fetch_all();
+                                 $rows=$resultado->fetch_all(); 
 
                                  foreach($rows as $row){
                                  ?>

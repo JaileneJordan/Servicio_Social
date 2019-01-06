@@ -35,6 +35,39 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#materia").change(function () {
+ 
+          //$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+          
+          $("#materia option:selected").each(function () {
+            id_materia = $(this).val();
+            $.post("includes/getSalon.php", { id_materia:id_materia}, function(data){
+              $("#salon").html(data);
+            });            
+          });
+        })
+      });
+      
+      /*$(document).ready(function(){
+        $("#cbx_municipio").change(function () {
+          $("#cbx_municipio option:selected").each(function () {
+            id_municipio = $(this).val();
+            $.post("includes/getLocalidad.php", { id_municipio: id_municipio }, function(data){
+              $("#cbx_localidad").html(data);
+            });            
+          });
+        })
+      });*/
+    </script>
+
+
 
 
   </head>
@@ -141,11 +174,11 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="./registrarasesoria.php" method="POST">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Materia <span class="required">*</span>
-                        </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="materia">Materia <span class="required">*</span>
+                        </label> 
                           <div class="col-md-3">
-                            <select class="form-control" name="id_dia">
-                              <option selected disabled>Elegir...</option>
+                            <select class="form-control" name="materia" id="materia">
+                              <option selected disabled value="0">Elegir...</option>
                               <?php
                                 $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
                                 $query = $mysqli -> query ("SELECT * FROM materia");
@@ -158,27 +191,20 @@
                         </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Salon <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="salon">Salon <span class="required">*</span>
                         </label>
                           <div class="col-md-3">
-                            <select class="form-control" name="id_dia">
-                              <option selected disabled>Elegir...</option>
-                              <?php
-                                $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
-                                $query = $mysqli -> query ("SELECT * FROM aula");
-                                while ($valores = mysqli_fetch_array($query)) {
-                                  echo '<option value="'.$valores[id_aula].'">'.$valores[nombre].'</option>';
-                                }
-                              ?>
+                            <select class="form-control" name="salon" id="salon">
+
                             </select>
                           </div>
                         </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Dia <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="dia">Dia <span class="required">*</span>
                         </label>
                           <div class="col-md-3">
-                            <select class="form-control" name="id_dia">
+                            <select class="form-control" name="dia">
                               <option selected disabled>Elegir...</option>
                               <?php
                                 $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
@@ -192,34 +218,22 @@
                         </div>
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id_dia">Hora Inicio <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hora_inicio">Hora Inicio <span class="required">*</span>
                         </label>
                           <div class="col-md-3">
-                            <select class="form-control" name="id_dia">
+                            <select class="form-control" name="hora_inicio">
                               <option selected disabled>Elegir...</option>
                               <?php
                                 $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
-                                $query = $mysqli -> query ("SELECT hora_inicio FROM asesoria");
+                                $query = $mysqli -> query ("SELECT * FROM asesoria");
                                 while ($valores = mysqli_fetch_array($query)) {
-                                  echo '<option value="'.$valores[id_asesoria].'">'.$valores[hora_inicio].'</option>';
+                                  echo '<option value="'.$valores[hora_inicio].'">'.$valores[hora_inicio].'</option>';
                                 }
                               ?>
                             </select>
                           </div>
                         </div>
-                      <!--<div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Hora de fin <span class="required">*</span>
-                        </label>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                          <select class="form-control">
-                            <option>Elija una opción...</option>
-                            <option>12:50</option>
-                            <option>14:50</option>
-                            <option>17:50</option>
-                            <option>20:50</option>
-                          </select>
-                        </div>
-                      </div>-->
+
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
