@@ -42,7 +42,7 @@
 
         $queryinsert="INSERT INTO registrar_asesoria (matricula_alumno,fecha,id_asesoria) VALUES('$matricula','$hoy',$asesoria);";
         //echo "<br>";
-        //echo $queryinsert;
+        echo $queryinsert;
         $conn->query($queryinsert) or die("Error al ingresar los datos".mysqli_error($conn));
         $conn->close();
         header('Location: control_programadas.php');
