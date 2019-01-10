@@ -35,16 +35,13 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
+    <!--
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-
-
-
-
     <script type="text/javascript">
       $(document).ready(function(){
         $("#materia").change(function () {
  
-          //$('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
+          $('#cbx_localidad').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
           
           $("#materia option:selected").each(function () {
             id_materia = $(this).val();
@@ -54,8 +51,7 @@
           });
         })
       });
-      
-      /*$(document).ready(function(){
+      $(document).ready(function(){
         $("#cbx_municipio").change(function () {
           $("#cbx_municipio option:selected").each(function () {
             id_municipio = $(this).val();
@@ -66,10 +62,7 @@
         })
       });*/
     </script>
-
-
-
-
+    -->
   </head>
 
   <body class="nav-md">
@@ -195,7 +188,14 @@
                         </label>
                           <div class="col-md-3">
                             <select class="form-control" name="salon" id="salon">
-
+                              <option selected disabled value="0">Elegir...</option>
+                              <?php
+                                $mysqli = new mysqli('localhost', 'root', '', 'asesorias_successfull');
+                                $query = $mysqli -> query ("SELECT * FROM aula");
+                                while ($valores = mysqli_fetch_array($query)) {
+                                  echo '<option value="'.$valores[id_aula].'">'.$valores[nombre].'</option>';
+                                }
+                              ?>
                             </select>
                           </div>
                         </div>
