@@ -2,11 +2,10 @@
 
 /**
 * Conexion a la base de datos y funciones
-* Autor: evilnapsis
 **/
 
 function con(){
-	return new mysqli('localhost','root','','asesorias_successfull');
+	return new mysqli("localhost","root","","carousel");
 }
 
 function insert_img($title, $folder, $image){
@@ -17,7 +16,7 @@ function insert_img($title, $folder, $image){
 function get_imgs(){
 	$images = array();
 	$con = con();
-	$query=$con->query("select * from image");
+	$query=$con->query("select * from image order by created_at desc");
 	while($r=$query->fetch_object()){
 		$images[] = $r;
 	}

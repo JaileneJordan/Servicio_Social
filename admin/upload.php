@@ -17,6 +17,17 @@ error_reporting(E_ALL);
     if ($handle->processed) {
     	// usamos la funcion insert_img de la libreria db.php
     	insert_img($_POST["title"],"uploads/",$handle->file_dst_name);
+      //te falta implementar el query en la badge
+    /*  $query = INSERT INTO image_carousel  VALUES ("uploads/".$handle->file_dst_name."")
+      $execute = mysqli_query($conexion, $query);
+
+      if ($execute){
+          //si se ejecutó el $query
+          echo "CONSULTA EXITOSA";
+      }else{
+
+      }
+      */
     } else {
       echo 'Error: ' . $handle->error;
     }

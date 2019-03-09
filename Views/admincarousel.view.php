@@ -134,13 +134,14 @@
               echo "Fecha de inicio de sesion: ".date("Y/m/d");
             ?>
           </h2>
-<<<<<<< HEAD
+
           <h1>Carrucel de Imágenes</h1>
           <div class="page-title">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
+
                   <h3>Subir imágen para Carrucel</h3>
                   <div class="clearfix"></div>
                 </div>
@@ -160,8 +161,8 @@
                 				<td><img src="<?php echo $img->folder.$img->src; ?>" style="width:240px;">				</td>
                 				<td><?php echo $img->title; ?></td>
                 				<td>
-                				<a class="btn btn-success" href="../Servicio_Social/admin/download.php?id=<?php echo $img->id; ?>">Descargar</a>
-                				<a class="btn btn-danger" href="../Servicio_Social/admin/delete.php?id=<?php echo $img->id; ?>">Eliminar</a>
+                          <a class="btn btn-success" href="../Servicio_Social/admin/download.php?id=<?php echo $img->id; ?>">Descargar</a>
+  				                <a class="btn btn-danger" href="../Servicio_Social/admin/delete.php?id=<?php echo $img->id; ?>">Eliminar</a>
                 			</td>
                 				</tr>
                 			<?php endforeach;?>
@@ -174,7 +175,7 @@
                 </div>
               </div>
              </div>
-=======
+
         <h1>Módulo de Administrador</h1>
 
 		<div class="container">
@@ -210,7 +211,6 @@
 </div>
 
 
->>>>>>> 19a7f89c6971c81431f4f24132bb5bc4407c9671
 
           </div>
         </div>
